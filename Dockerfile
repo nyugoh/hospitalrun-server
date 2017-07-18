@@ -9,7 +9,8 @@ WORKDIR /usr/src/app
 
 #Install Dependencies
 COPY package.json /usr/src/app
-RUN npm install --loglevel silent
+RUN npm install
+RUN apt-get update && apt-get install -y vim nano
 
 COPY . /usr/src/app
 COPY conf/entrypoint.sh .

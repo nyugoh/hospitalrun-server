@@ -1,6 +1,6 @@
 #!/bin/bash
 
-URL="couchdb"
+URL="172.18.0.6"
 PORT="5984"
 
 if [ -z "${1}" ] || [ -z "${2}" ]; then

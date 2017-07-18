@@ -3,7 +3,7 @@ services:
   nginx:
     build:
       args:
-        DOMAIN_NAME: www.example.com
+        DOMAIN_NAME: http://localhost
       context: nginx/.
       dockerfile: Dockerfile
     links:
@@ -19,6 +19,8 @@ services:
     container_name: hospitalrun
     build: .
     image: hospitalrun
+    volumes:
+      - /home/joe/Programming/Ember/hospitaliplus-server/dist:/usr/src/app/node_modules/hospitalrun/prod
     links:
       - couchdb
       - elasticsearch
