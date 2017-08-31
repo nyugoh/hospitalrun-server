@@ -1,10 +1,15 @@
 var config = {
-  couchDbServer: 'couchdb',
+  couchDbServer: 'localhost',
   couchDbPort: '5984',
   couchDbUseSsl: false,
   couchDbChangesSince: 'now',
-  couchAdminUser: 'couchadmin',
-  couchAdminPassword: 'test',
+  couchAdminUser: 'Joe',
+  couchAdminPassword: 'root',
+  mysqlServer: 'localhost',
+  mysqlPort: '3306',
+  mysqlAdminUser: 'root',
+  mysqlAdminPassword: 'root',
+  mysqlDatabase: 'smartlink',
   googleClientId: 'FOR GOOGLE SSO; GOOGLE CLIENT ID GOES HERE',
   googleClientSecret: 'FOR GOOGLE SSO; GOOGLE CLIENT SECRET GOES HERE',
   serverPort: '3000',
@@ -18,7 +23,15 @@ var config = {
   logRequests: false,
   logFormat: 'default', // See http://www.senchalabs.org/connect/logger.html for log formats
   useGoogleAuth: false,
-  useCertBot: false
+  useCertBot: false,
+  parserOptions: {
+    compact: true,
+    ignoreComment: true,
+    ignoreDeclaration: true,
+    nativeType: true,
+    ignoreDoctype: true,
+    textKey: 'text'
+  }
 };
 
 config.couchCredentials = function() {
@@ -40,7 +53,7 @@ if (config.serverPort) {
 
 config.couchDbURL = config.getProtocol(config.couchDbUseSsl) + config.couchDbServer + ':' + config.couchDbPort;
 config.couchAuthDbURL = config.getProtocol(config.couchDbUseSsl) + config.couchCredentials() + config.couchDbServer + ':' + config.couchDbPort;
-config.searchURL = 'http://elastic:changeme@elasticsearch:9200'; // ELASTIC SEARCH URL
+config.searchURL = 'http://elastic:changeme@localhost:9200'; // ELASTIC SEARCH URL
 config.webDir = __dirname + '/public';
-config.serverInfo = 'Server Information to display to users when viewing about HospitalRun';
+config.serverInfo = 'HospitaliPlus is a Modern Application for Hospital Management focused on working offline first.';
 module.exports = config;
