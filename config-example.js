@@ -56,4 +56,34 @@ config.couchAuthDbURL = config.getProtocol(config.couchDbUseSsl) + config.couchC
 config.searchURL = 'http://elastic:changeme@localhost:9200'; // ELASTIC SEARCH URL
 config.webDir = __dirname + '/public';
 config.serverInfo = 'HospitaliPlus is a Modern Application for Hospital Management focused on working offline first.';
+config.getCurrentDateTime = function() {
+    let months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+    let date = new Date();
+    let month = months[date.getMonth()];
+    let day = 0;
+    let hours = 0;
+    let minutes = 0;
+    let seconds = 0;
+    if (date.getDate() < 10) {
+      day = months[date.getDate() - 1];
+    } else {
+      day = date.getDate();
+    }
+    if (date.getHours() < 10) {
+      hours = months[date.getHours()];
+    } else {
+      hours = date.getHours();
+    }
+    if (date.getMinutes() < 10) {
+      minutes = months[date.getMinutes()];
+    } else {
+      minutes = date.getMinutes();
+    }
+    if (date.getSeconds() < 10) {
+      seconds = months[date.getSeconds()];
+    } else {
+      seconds = date.getSeconds();
+    }
+    return { 'date': `${date.getFullYear()}-${month}-${day}`, 'time': `${hours}:${minutes}:${seconds}` };
+  };
 module.exports = config;
