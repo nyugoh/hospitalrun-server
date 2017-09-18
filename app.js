@@ -35,7 +35,7 @@ app.use('/patientimages', express.static(config.imagesdir));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-connection.connect();
+//connection.connect();
 app.get('/api/v1/smart/:id', (req, res, next)=>{
   var patientID = req.params['id'];
   var query = 'SELECT * FROM exchange_files WHERE Member_Nr =\'' + patientID + '\' ORDER BY ID DESC LIMIT 1';
