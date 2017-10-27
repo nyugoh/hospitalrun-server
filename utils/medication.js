@@ -1,11 +1,5 @@
-var camelize = require('camelize');
 var config = require('../config.js');
-var fs = require('fs');
-var moment = require('moment');
 var nano = require('nano')(config.couchAuthDbURL);
-var parse = require('csv-parse');
-var relPouch = require('relational-pouch');
-var uuid = require('node-uuid');
 
 var maindb = nano.use('main');
 var views = ['inventory_by_friendly_id', 'inventory_by_name'];

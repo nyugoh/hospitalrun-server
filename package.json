@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "camelize": "^1.0.0",
+    "mysql": "^2.15.0",
     "relational-pouch": "^1.3.3"
   },
   "snyk": true
