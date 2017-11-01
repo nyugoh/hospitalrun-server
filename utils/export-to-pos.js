@@ -2,10 +2,10 @@ var config = require('../config.js');
 var nano = require('nano')(config.couchAuthDbURL);
 var mysql = require('mysql')
 var connection = mysql.createConnection({
-  host: '192.168.0.166',
+  host: '192.168.0.199',
   port: '3306',
   user: 'root',
-  password: '',
+  password: 'root',
   database: 'pos'
 });
 
